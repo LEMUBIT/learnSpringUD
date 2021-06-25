@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn</title>
+</head>
+<body>
+
+<form th:object = "${newName}" th:action="@{/home}" action="#" method="POST">
+
+    <label for="newNameField">Submit a new name:</label>
+
+    <input type="text"
+           id="newNameField"
+           name="newNameField"
+           th:field ="*{nametext}" >
+
+    <input type="submit">
+</form>
+
+
+
+<h1 th:text = "${welcomeMsg}">Hello, Welcome</h1>
+
+<h4 th:each = "name : ${names}" th:text = "${name}"></h4>
+
+<h5>Conditional..</h5>
+
+<h4 th:each = "name : ${names}"
+    th:text = "${name}"
+    th:unless = "${#strings.length(name) > 3}"
+></h4>
+
+
+
+</body>
+</html>
